@@ -25,20 +25,21 @@ object LoliYouWant : KotlinPlugin(
         dependsOn("xyz.cssxsh.mirai.plugin.mirai-economy-core", true)
     }
 ) {
-    private val r18Tags = listOf(
-        "sex",
-        "penis",
-        "pussy",
-        "cum",
-        "nude",
-        "vaginal",
-        "testicles",
-        "nipple",
-        "papilla",
-        "teat",
-        "thele",
-        "vulva"
-    )
+    // private val r18Tags = listOf(
+    //     "sex",
+    //     "penis",
+    //     "pussy",
+    //     "cum",
+    //     "nude",
+    //     "vaginal",
+    //     "testicles",
+    //     "nipple",
+    //     "papilla",
+    //     "teat",
+    //     "thele",
+    //     "vulva"
+    // )
+    private val r18Tags:List<String> = listOf()
     internal val blacklistTags = mutableListOf<String>()
     lateinit var PERM_RANDOM: Permission
     lateinit var PERM_BYPASS_COOLDOWN: Permission
@@ -64,9 +65,6 @@ object LoliYouWant : KotlinPlugin(
 
     fun searchLolis(loliList: List<Loli>): List<Loli> {
         return loliList
-            // 为你的账号安全着想，请不要移除评级为 e 的图片过滤
-            // 要涩涩就自己上源站看去
-            .filter { it.rating != "e" }
             .filter { checkTags(it) }
             .filter { if (!LoliConfig.strictMode) it.rating != "q" else true }
     }

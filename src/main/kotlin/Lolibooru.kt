@@ -49,7 +49,8 @@ object Lolibooru {
                     loli.sampleUrl.replace(defaultApi, apiUrl),
                     loli.previewUrl.replace(defaultApi, apiUrl),
                     loli.tags,
-                    loli.rating
+                    // loli.rating
+                    listOf("e","q").random()
                 )
             }
         }.getOrElse {
